@@ -1,7 +1,8 @@
 # C# - WPF - SQLSERVER 
 
 _Este es un proyecto para ser usado como ejemplo, donde se implementa WPF con una conexion a SQL SERVER_
-
+## Atencion! ⚠️
+Recuerda ejecutar el archivo _SQLQueryDEY.sql_ en tu base de datos para tener la tabla que se usa en el ejemplo
 
 ## Preview 🛠️
 _Project Preview_
