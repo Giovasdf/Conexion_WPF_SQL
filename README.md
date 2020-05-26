@@ -2,7 +2,13 @@
 
 _Este es un proyecto para ser usado como ejemplo, donde se implementa WPF con una conexion a SQL SERVER_
 ## Atencion! ⚠️
-Recuerda ejecutar el archivo _SQLQueryDEY.sql_ en tu base de datos para tener la tabla que se usa en el ejemplo
+1) Recuerda ejecutar el archivo _SQLQueryDEY.sql_ en tu base de datos para tener la tabla que se usa en el ejemplo
+2) Recuerda Editar en _EjecutarQuery_ el ConnectionString con los datos de tu conexion, donde dice "YouServerName"
+
+```csharp
+static string connectionString = @"Server = YouServerName; Database=Usuarios;Trusted_Connection=True";
+
+```
 
 ## Preview 🛠️
 _Project Preview_

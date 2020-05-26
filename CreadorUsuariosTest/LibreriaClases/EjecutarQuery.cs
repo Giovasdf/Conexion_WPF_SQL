@@ -11,7 +11,7 @@ namespace LibreriaClases
     public class EjecutarQuery
     {
 
-        static string connectionString = @"Server = DESKTOP-6N3RFB9\SQLEXPRESS; Database=Usuarios;Trusted_Connection=True";
+        static string connectionString = @"Server = YouServerName; Database=Usuarios;Trusted_Connection=True";
 
         public static List<usuario> listaUsuarios;
 
