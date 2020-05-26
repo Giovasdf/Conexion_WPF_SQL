@@ -27,7 +27,34 @@ namespace CreadorUsuariosTest
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            LibreriaClases.EjecutarQuery.SqlCommandPrepareEx(txtNombre.Text, txtApellido.Text);
+            LibreriaClases.EjecutarQuery.insertSQL(txtNombre.Text, txtApellido.Text);
+        }
+
+        private void btnBuscarID_Click(object sender, RoutedEventArgs e)
+        {
+            LibreriaClases.usuario usuario = new LibreriaClases.usuario();
+            if(LibreriaClases.EjecutarQuery.selectSQL(int.Parse(txtID.Text)).Any())
+            {
+                usuario = LibreriaClases.EjecutarQuery.selectSQL(int.Parse(txtID.Text))[0];
+                txtNombre.Text = usuario.nombre;
+                txtApellido.Text = usuario.apellido;
+            }
+            else
+            {
+                MessageBox.Show("Usuario no encontrado", "Alerta", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (LibreriaClases.EjecutarQuery.selectAllUsuariosSQL().Any())
+            {
+                dgUsuario.ItemsSource = LibreriaClases.EjecutarQuery.selectAllUsuariosSQL();
+            }
+            else
+            {
+                MessageBox.Show("No se encontro ningun usuario", "Alerta", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
         }
     }
 }

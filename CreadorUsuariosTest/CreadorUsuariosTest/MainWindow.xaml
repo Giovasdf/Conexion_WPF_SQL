@@ -8,10 +8,17 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FF2C2C2C">
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="330,181,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="23" Margin="330,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="23" Margin="330,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
 
         <Button x:Name="btnAgregar" Content="Agregar Usuario" HorizontalAlignment="Left" Margin="330,265,0,0" VerticalAlignment="Top" Width="120" Click="BtnAgregar_Click"/>
+        <Button x:Name="btnBuscarID" Content="Obtener Usuario por ID" HorizontalAlignment="Left" Margin="175,265,0,0" VerticalAlignment="Top" Width="133" Click="btnBuscarID_Click"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="23" Margin="175,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblid" Content="ID de Usuario" HorizontalAlignment="Left" Margin="191,150,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="lblnombre" Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="330,150,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="lblApellido" Content="Apellido de Usuario" HorizontalAlignment="Left" Margin="330,209,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <DataGrid x:Name="dgUsuario" HorizontalAlignment="Left" Height="247" Margin="497,25,0,0" VerticalAlignment="Top" Width="252" RenderTransformOrigin="0.84,0.79"/>
+        <Button x:Name="button" Content="LLenar DataGrid" HorizontalAlignment="Left" Margin="582,302,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
 
     </Grid>
 </Window>
