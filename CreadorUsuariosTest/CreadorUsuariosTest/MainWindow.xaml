@@ -19,6 +19,10 @@
         <Label x:Name="lblApellido" Content="Apellido de Usuario" HorizontalAlignment="Left" Margin="330,209,0,0" VerticalAlignment="Top" Foreground="White"/>
         <DataGrid x:Name="dgUsuario" HorizontalAlignment="Left" Height="247" Margin="497,25,0,0" VerticalAlignment="Top" Width="252" RenderTransformOrigin="0.84,0.79"/>
         <Button x:Name="button" Content="LLenar DataGrid" HorizontalAlignment="Left" Margin="582,302,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
+        <DatePicker HorizontalAlignment="Left" Margin="26,25,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DP1" HorizontalAlignment="Left" Margin="26,25,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="DP2"  HorizontalAlignment="Left" Margin="207,25,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCalcularFecha" Content="Calcular Diferencia Fechas" HorizontalAlignment="Left" Margin="136,79,0,0" VerticalAlignment="Top" Width="137" Click="btnCalcularFecha_Click"/>
 
     </Grid>
 </Window>
