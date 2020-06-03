@@ -23,6 +23,10 @@ namespace CreadorUsuariosTest
         public MainWindow()
         {
             InitializeComponent();
+            if (LibreriaClases.EjecutarQuery.selectAllEstadoCivilSQL().Any())
+            {
+                cbEstadoCiviles.ItemsSource = LibreriaClases.EjecutarQuery.selectAllEstadoCivilSQL().Select(Estado => Estado.descripcion).ToList();
+            }
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
@@ -74,5 +78,6 @@ namespace CreadorUsuariosTest
             MessageBox.Show($"Diferencia Fecha {diferenciaDias}", "Resultado", MessageBoxButton.OK, MessageBoxImage.Asterisk);
 
         }
+
     }
 }

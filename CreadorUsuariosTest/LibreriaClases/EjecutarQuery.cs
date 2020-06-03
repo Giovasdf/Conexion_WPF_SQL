@@ -11,10 +11,10 @@ namespace LibreriaClases
     public class EjecutarQuery
     {
 
-        static string connectionString = @"Server = YouServerName; Database=Usuarios;Trusted_Connection=True";
+        static string connectionString = @"Server = DESKTOP-6N3RFB9\SQLEXPRESS; Database=Usuarios;Trusted_Connection=True";
 
         public static List<usuario> listaUsuarios;
-
+        public static List<EstadoCivil> listaEstados;
 
         #region InsertSQL
         public static void insertSQL( string nombre,string apellido)
@@ -24,7 +24,7 @@ namespace LibreriaClases
                 SqlCommand command = new SqlCommand(null, connection);
 
                 // Create and prepare an SQL statement.
-                command.CommandText = "INSERT INTO usuario (nombre, apellido) " + "VALUES (@nombre, @apellido)";             
+                command.CommandText = "INSERT INTO usuario (nombre, apellido) VALUES (@nombre, @apellido)";             
                 command.Parameters.AddWithValue("@nombre", nombre);
                 command.Parameters.AddWithValue("@apellido", apellido);
 
@@ -49,7 +49,8 @@ namespace LibreriaClases
                 SqlCommand command = new SqlCommand(null, connection);
 
                 // Create and prepare an SQL statement.
-                command.CommandText = "INSERT INTO usuario (nombre) " + "VALUES (@nombre)";
+                command.CommandText = "INSERT INTO usuario (nombre) VALUES (@nombre)";
+                
                 command.Parameters.AddWithValue("@nombre", nombre);
 
                 try
@@ -78,17 +79,19 @@ namespace LibreriaClases
                 DataTable dt = new DataTable();
                 // Create and prepare an SQL statement.
                 command.CommandText = $"select * from usuario where id_usuario = {id}";
-
+               
                 try
                 {
                     connection.Open();
                     var DataAdapter = new SqlDataAdapter(command);
                     DataAdapter.Fill(dt);
                     usuario _usuario = new usuario();
-                    listaUsuarios = new List<usuario>();
+                    listaUsuarios = new List<usuario>();                    
+
                     _usuario.id_usuario = int.Parse((dt.Rows[0]["id_usuario"].ToString()));
                     _usuario.nombre = dt.Rows[0]["nombre"].ToString();
                     _usuario.apellido = dt.Rows[0]["apellido"].ToString();
+
                     listaUsuarios.Add(_usuario);
                 }
                 catch (Exception ex)
@@ -110,26 +113,58 @@ namespace LibreriaClases
             {
                 //command nos prepara la query a ejecutar
                 SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "select * from usuario ";
+                command.CommandText = "select * from usuario";
 
                 connection.Open();
+
                 var DataAdapter = new SqlDataAdapter(command);
                 DataAdapter.Fill(dt);
+
                 listaUsuarios = new List<usuario>();
 
                 foreach (DataRow row in dt.Rows)
                 {
                     usuario usuarioTemp = new usuario();
+
                     usuarioTemp.id_usuario = int.Parse(row["id_usuario"].ToString());
                     usuarioTemp.nombre = row["nombre"].ToString();
                     usuarioTemp.apellido = row["apellido"].ToString();
+
                     listaUsuarios.Add(usuarioTemp);
                 }
-
-
-
             }
             return listaUsuarios;
+        }
+
+        //se obtienen todos los usuarios en la BD
+        public static List<EstadoCivil> selectAllEstadoCivilSQL()
+        {
+            var dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                //command nos prepara la query a ejecutar
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "select * from EstadoCivil";
+
+                connection.Open();
+
+                var DataAdapter = new SqlDataAdapter(command);
+                DataAdapter.Fill(dt);
+
+                listaEstados = new List<EstadoCivil>();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    EstadoCivil estadoCivil = new EstadoCivil();
+
+                    estadoCivil.id_estadoCivil = int.Parse(row["IdEstadoCivil"].ToString());
+                    estadoCivil.descripcion = row["Descripcion"].ToString();
+
+                    listaEstados.Add(estadoCivil);
+                }
+            }
+            return listaEstados;
         }
         #endregion SelectSQL
 

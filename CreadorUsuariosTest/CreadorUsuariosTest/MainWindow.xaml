@@ -23,6 +23,7 @@
         <DatePicker x:Name="DP1" HorizontalAlignment="Left" Margin="26,25,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="DP2"  HorizontalAlignment="Left" Margin="207,25,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnCalcularFecha" Content="Calcular Diferencia Fechas" HorizontalAlignment="Left" Margin="136,79,0,0" VerticalAlignment="Top" Width="137" Click="btnCalcularFecha_Click"/>
+        <ComboBox x:Name="cbEstadoCiviles" HorizontalAlignment="Left" Margin="51,387,0,0" VerticalAlignment="Top" Width="120" />
 
     </Grid>
 </Window>
